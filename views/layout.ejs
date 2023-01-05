@@ -1,0 +1,23 @@
+<html>
+    <head>
+
+        <title>
+            <%= title %>
+        </title>
+        <link rel="stylesheet" href="/css/layout.css">
+<!-- linking sub-files' css via inbuilt express functions -->
+        <%- style %>
+
+    </head>
+
+    <body>
+       <%- include('_header'); %>
+       
+       <%- body %>
+        
+       <%- include('_footer'); %>
+
+       <!-- linking sub-files' css via inbuilt express functions -->
+       <%- script %>
+    </body>
+</html>
