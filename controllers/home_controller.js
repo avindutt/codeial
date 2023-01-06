@@ -4,6 +4,8 @@ module.exports.home = function(req, res){
 
     //but now we will send response from the views to the browser
 
+    console.log(req.cookies);
+    res.cookie('user_id', 25);//editing the cookie value
     return res.render('home', {
         title: "Home"
     });
