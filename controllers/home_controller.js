@@ -1,12 +1,29 @@
+const Post = require('../models/post');
+
 module.exports.home = function(req, res){
-    //this line send the written code directly to the browser
-    //return res.end('<h1>Express is up for Codeial! </h1>');
+   // console.log(req.cookies);
+   // res.cookie('user_id', 25);//editing the cookie value
 
-    //but now we will send response from the views to the browser
+//    Post.find({}, function(err, posts){
+//     return res.render('home', {
+//         title: "Codeial | Home",
+//         posts: posts
+//     });
+//    });
 
-    console.log(req.cookies);
-    res.cookie('user_id', 25);//editing the cookie value
+   Post.find({})
+   .populate('user')
+   .populate({
+      path: 'comments',
+      populate: {
+         path: 'user'
+      }
+   })
+   .exec(function(err, posts){ // doing this will give the whole user object instead of just user id
     return res.render('home', {
-        title: "Home"
+        title: "Codeial | Home",
+        posts: posts
     });
+   });
+
 };

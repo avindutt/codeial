@@ -44,8 +44,8 @@ app.set('views', './views');
 app.use(session({
     name: 'codeial',
     secret: 'something',
-    saveUninitialized: false,
-    resave: false,
+    saveUninitialized: false, // when identity is established then we don not want to save the session data in browser
+    resave: false, // when identity is established we do not want to save the data again and again if it is not changed
     cookie: {
         maxAge: (1000 * 60 * 100)
     },
