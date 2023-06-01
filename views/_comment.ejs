@@ -1,14 +1,14 @@
 <li>
     <p>
-        <% if (locals.user && locals.user.id == j.user.id) { %>
+        <% if (locals.user && locals.user.id == comment.user.id) { %>
             <small>
-                <a href="/comments/destroy/<%= j.id %>">x</a>
+                <a href="/comments/destroy/<%= comment.id %>">x</a>
             </small>
             <% } %>
-        <%= j.content %>
+        <%= comment.content %>
         <br>
         <small>
-            <%= j.user.name %>
+            <%= comment.user.name %>
         </small>
     </p>
 </li>
