@@ -30,6 +30,8 @@ app.use(cookieParser());
 
 app.use(express.static('./assets'));
 
+app.use('/uploads', express.static(__dirname + '/uploads')); // telling the app to use uploads folder
+
 app.use(expressLayouts);
 
 //extract style and scripts from sub pages(user_profile) into the layout
